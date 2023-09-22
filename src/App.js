@@ -6,7 +6,6 @@ import studio from '@theatre/studio';
 import extension from '@theatre/r3f/dist/extension';
 import { editable as e, SheetProvider } from '@theatre/r3f';
 
-import { PerspectiveCamera } from '@theatre/r3f';
 
 import demoProjectState from './state.json';
 
@@ -15,33 +14,20 @@ studio.extend(extension);
 
 const project = getProject('Demo Project', { state: demoProjectState });
 
-const demoSheet = project.sheet('Demo Sheet');
-
-// const demoSheet = getProject('Demo Project').sheet('Demo Sheet');
 
 const App = () => {
   useEffect(() => {
-    demoSheet.project.ready.then(() =>
-      demoSheet.sequence.play({ iterationCount: Infinity, range: [0, 1] })
-    );
+    project.ready.then(() => {
+      for (let i = 0; i < 5; i++) {
+        setTimeout(() => {
+          project.sheet('Demo Sheet', 'a' + (i + 1).toString()).sequence.play({ iterationCount: Infinity, range: [0, 5] })
+        }, i*1000);
+  
+      }
+     
+    });
   }, []);
 
-  const aa = (i) => {
-    return (
-      <e.mesh theatreKey={'Cube' + i.toString()}>
-        <boxGeometry args={[1, 1, 1]} />
-        <meshStandardMaterial color="orange" />
-      </e.mesh>
-    );
-  };
-
-  useEffect(() => {
-    for (let i = 1; i <= 5; i++) {
-      console.log(i);
-    }
-
-    return () => {};
-  }, []);
 
   return (
     <div
@@ -52,24 +38,18 @@ const App = () => {
       }}
     >
       <Canvas>
-        <SheetProvider sheet={demoSheet}>
-          <PerspectiveCamera
-            theatreKey="Camera"
-            makeDefault
-            position={[5, 5, -5]}
-            fov={75}
-          />
-          <ambientLight />
-          <e.pointLight theatreKey="Light" position={[10, 10, 10]} />
-          {['a', 'b', 'c', 'd'].map((val, i) => {
-            return (
-              <e.mesh theatreKey={'Cube' + i.toString()}>
+        <ambientLight />
+        <pointLight theatreKey="Light" position={[10, 10, 10]} />
+        {[1, 2, 3, 4, 5].map((_, i) => {
+          return (
+            <SheetProvider sheet={project.sheet('Demo Sheet', 'a' + (i + 1).toString())}>
+              <e.mesh theatreKey={'Cube1'}>
                 <boxGeometry args={[1, 1, 1]} />
-                <meshStandardMaterial color="orange" />
+                <meshStandardMaterial color={`hsl(${i*20}, 100%, 50%)`} />
               </e.mesh>
-            );
-          })}
-        </SheetProvider>
+            </SheetProvider>
+          )
+        })}
       </Canvas>
     </div>
   );
