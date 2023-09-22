@@ -1,0 +1,76 @@
+{
+  "sheetsById": {
+    "Demo Sheet": {
+      "staticOverrides": {
+        "byObject": {
+          "Cube1": {
+            "position": {
+              "x": 0,
+              "y": 20.244557366844564,
+              "z": -31.70236313454289
+            }
+          }
+        }
+      },
+      "sequence": {
+        "subUnitsPerUnit": 30,
+        "length": 10,
+        "type": "PositionalSequence",
+        "tracksByObject": {
+          "Cube1": {
+            "trackData": {
+              "3qIJ6O_imr": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "Cube1:[\"position\",\"x\"]",
+                "keyframes": [
+                  {
+                    "id": "kHzNwPVPsL",
+                    "position": 0.067,
+                    "connectedRight": true,
+                    "handles": [0.5, 1, 0.5, 0],
+                    "type": "bezier",
+                    "value": -13.660000000000004
+                  },
+                  {
+                    "id": "YEW8ZMj_10",
+                    "position": 1.167,
+                    "connectedRight": true,
+                    "handles": [0.5, 1, 0.5, 0],
+                    "type": "bezier",
+                    "value": 13.859999999999994
+                  }
+                ]
+              },
+              "Tjp4m7gprh": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "Cube1:[\"position\",\"y\"]",
+                "keyframes": [
+                  {
+                    "id": "3lcAZfnxmg",
+                    "position": 1.167,
+                    "connectedRight": true,
+                    "handles": [0.5, 1, 0.5, 0],
+                    "type": "bezier",
+                    "value": 22.294557366844554
+                  }
+                ]
+              },
+              "6453Mfjc1I": {
+                "type": "BasicKeyframedTrack",
+                "__debugName": "Cube1:[\"position\",\"z\"]",
+                "keyframes": []
+              }
+            },
+            "trackIdByPropPath": {
+              "[\"position\",\"x\"]": "3qIJ6O_imr",
+              "[\"position\",\"y\"]": "Tjp4m7gprh",
+              "[\"position\",\"z\"]": "6453Mfjc1I"
+            }
+          }
+        }
+      }
+    }
+  },
+  "definitionVersion": "0.4.0",
+  "revisionHistory": ["PHVwul1egUXNZBPW", "NEn9EXWOZ2Byg-2p"]
+}
