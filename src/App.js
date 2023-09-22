@@ -7,6 +7,7 @@ import extension from '@theatre/r3f/dist/extension';
 import { editable as e, SheetProvider } from '@theatre/r3f';
 
 
+
 import demoProjectState from './state.json';
 
 studio.initialize();
